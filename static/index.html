@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Геопланирование</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-panel">
+        <div class="brand">
+          <span class="brand-mark">G</span>
+          <div>
+            <h1>Геопланирование</h1>
+            <p>KMeans + веса + балансировка</p>
+          </div>
+        </div>
+
+        <form id="planForm" class="form">
+          <label class="file-drop">
+            <input id="fileInput" name="file" type="file" accept=".csv,.xlsx,.xls" required />
+            <span id="fileLabel">Выберите CSV или Excel</span>
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Менеджеры
+              <input name="n_managers" type="number" min="1" placeholder="Авто из CSV" />
+            </label>
+            <label>
+              Визитов в день
+              <input name="max_visits_per_day" type="number" min="1" value="12" />
+            </label>
+            <label>
+              Рабочих дней
+              <input name="n_working_days" type="number" min="1" value="22" />
+            </label>
+          </div>
+
+          <button class="primary" type="submit">Построить план</button>
+          <div id="status" class="status"></div>
+        </form>
+
+        <div class="metrics" id="metrics"></div>
+
+        <div class="panel-section">
+          <div class="section-title">
+            <h2>Сводка по менеджерам</h2>
+            <a id="downloadLink" href="/api/export/routes.csv" hidden>Скачать CSV</a>
+          </div>
+          <div class="table-wrap">
+            <table id="summaryTable"></table>
+          </div>
+        </div>
+
+        <div class="panel-section">
+          <h2>Кластеры</h2>
+          <div class="table-wrap">
+            <table id="clusterTable"></table>
+          </div>
+        </div>
+      </section>
+
+      <section class="map-area">
+        <div id="map"></div>
+        <div class="routes-panel">
+          <div class="section-title">
+            <h2>Маршруты</h2>
+            <select id="managerFilter">
+              <option value="">Все менеджеры</option>
+            </select>
+          </div>
+          <div class="table-wrap routes-table">
+            <table id="routesTable"></table>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

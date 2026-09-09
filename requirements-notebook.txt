@@ -1,0 +1,9 @@
+jupyter
+pandas
+numpy
+scikit-learn
+folium
+branca
+matplotlib
+scipy
+requests
