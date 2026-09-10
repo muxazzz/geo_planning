@@ -72,4 +72,4 @@ python3 -m pip install -r requirements-notebook.txt
 jupyter notebook
 ```
 
-Если не корректно отображаются карты, то можно посмотреть файл `notebook_geo_копия.html`
+
