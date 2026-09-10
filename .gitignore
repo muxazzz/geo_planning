@@ -1,0 +1,19 @@
+.DS_Store
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local source data and generated exports
+data.csv
+data/
+private_data/
+exports/
+*.xlsx
+*.xls
+*.html
+*.pdf
+routes.csv
+
+!sample_data/
+!sample_data/*.csv
